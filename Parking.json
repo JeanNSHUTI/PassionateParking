@@ -1,0 +1,56 @@
+[
+  {
+    "size": [
+      250,
+      450
+    ],
+    "free": false,
+    "arrival": null,
+    "departure": null,
+    "vehicle": {
+      "license plate": "AVW696",
+      "type": "car",
+      "size": [
+        200,
+        400
+      ],
+      "caract": []
+    }
+  },
+  {
+    "size": [
+      300,
+      800
+    ],
+    "free": false,
+    "arrival": null,
+    "departure": null,
+    "vehicle": {
+      "license plate": "1QVG369",
+      "type": "truck",
+      "size": [
+        400,
+        1000
+      ],
+      "caract": []
+    }
+  },
+  {
+    "size": [
+      250,
+      400
+    ],
+    "free": true,
+    "arrival": null,
+    "departure": null,
+    "vehicle": {
+      "license plate": " ",
+      "type": " ",
+      "size": [
+        0,
+        0
+      ],
+      "caract": []
+    }
+  }
+]
