@@ -1,4 +1,4 @@
-package company.json;
+/*package company.json;
 
 import javax.json.*;
 import javax.json.stream.JsonGenerator;
@@ -44,4 +44,4 @@ public class WriteJson {
         generator.writeEnd(); //end array
         generator.close();
     }
-}
+}*/
