@@ -97,8 +97,8 @@ public class Place {
     }
     @Override
     public String toString(){
-        String construct = "place id: " + this.place_id+ ", free: " + this.free + ", vehicle: " +
-                this.vehicle.toString();
+        String construct = "place id: " + this.place_id+ ", free: " + this.free + ", vehicle: ";
+                //this.vehicle.toString();
         return construct;
     }
 }
