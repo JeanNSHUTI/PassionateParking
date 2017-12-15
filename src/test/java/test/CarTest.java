@@ -20,6 +20,5 @@ public class CarTest {
         Assert.assertEquals("Should be 0",0,car.vehicleCharacteristic().size());
         Assert.assertEquals("Should be Car","Car",car.getType());
 
-
     }
 }
