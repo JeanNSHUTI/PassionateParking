@@ -22,7 +22,7 @@ public class Place {
 
     //Constructor
     public Place(Size size) {
-        this.vehicle = null;
+        this.vehicle = new NoVehicle();
         this.size_place = size;
         this.free = true;
         this.place_id = count.incrementAndGet();
@@ -97,8 +97,8 @@ public class Place {
     }
     @Override
     public String toString(){
-        String construct = "place id: " + this.place_id+ ", free: " + this.free + ", vehicle: ";
-                //this.vehicle.toString();
+        String construct = "place id: " + this.place_id+ ", free: " + this.free + ", vehicle: " +
+                this.vehicle.toString();
         return construct;
     }
 }
