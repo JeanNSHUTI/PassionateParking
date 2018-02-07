@@ -54,7 +54,6 @@
     </module>
     <module name="ParameterName">
       <property name="format" value="^[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
-      <property name="accessModifiers" value="public"/>
     </module>
     <module name="MultipleVariableDeclarations"/>
   </module>
