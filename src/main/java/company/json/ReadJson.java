@@ -1,17 +1,12 @@
-/*package company.json;
+package company.json;
 
-//import javafx.util.converter.DateTimeStringConverter;
+import javafx.util.converter.DateTimeStringConverter;
 import company.*;
-
 import java.io.*;
-import java.lang.reflect.Array;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-//import java.time.LocalDateTime;
-//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 import javax.json.*;
 
@@ -32,13 +27,16 @@ public class ReadJson {
                 jsonArray = jsonReader.readArray();
                 List<Place> places = getPlaces(jsonArray);
                 for (Place place:places){
-                    System.out.println(place.toString());
-                    System.out.println("____________________________");
+                    System.out.println("Type : "+place.getVehicle().type());
+                    System.out.println("Arrival : "+place.getArrival().toString());
+                    System.out.println("Departure : "+place.getDeparture().toString());
+                    System.out.println("Price : "+place.getPrice());
+                    System.out.println("____________________________________________");
                 }
             }
             catch (javax.json.JsonException j){
                 jsonObject = jsonReader.readObject();
-                String[] data = new String[]{"length","width","price","free"};
+                String[] data = new String[]{"length","width","price","free","arrival","departure","Licence"};
                 for (String info:data)
                 {
                     String result = jsonObject.get(info).toString();
@@ -67,6 +65,7 @@ public class ReadJson {
             // get width and length as strings
             String width = widthlength.get(0).toString();
             String length = widthlength.get(1).toString();
+
             //make new Size object
             Size size = new Size(Integer.parseInt(length),Integer.parseInt(width));
             Place place = new Place(size);
@@ -112,42 +111,37 @@ public class ReadJson {
                     k++;
                 }
                 String[] key_value = comma_split[k].split(":");
-                switch(key_value[0]){
-                    case "license plate":
-                        if (key_value[1].equals(" ")) {
-                            place.setFree();
-                        }
-                        license_plate = key_value[1];
-                        break;
-                    case "size":
-                        String size2 = key_value[1];
-                        size2 = size2.replace("[","")
-                                .replace("]","");
-                        String[] size3 = size2.split(",");
-                        size4 = new Size(Integer.parseInt(size3[0]),Integer.parseInt(size3[1]));
-                        break;
-                    case "type":
-                        Size size1 = new Size(0,0);
-                        if (size4 == null){
-                            size4 = size1;
-                        }
-                        switch (key_value[1]){
-                            case "car":
-                                vehicle1 = new Car(license_plate,size4);
-                                break;
-                            case "truck":
-                                vehicle1 = new Truck(license_plate,size4);
-                                break;
-                            case "motor":
-                                vehicle1 = new Motor(license_plate,"");
-                                break;
-                        }
-                        break;
-                    case "caract":
-                        break;
-                    default:
-                        //
+                if (key_value[0].equals("license plate")) {
+                    if (key_value[1].equals(" ")) {
+                        place.setFree();
+                    }
+                    license_plate = key_value[1];
 
+                } else if (key_value[0].equals("size")) {
+                    String size2 = key_value[1];
+                    size2 = size2.replace("[", "")
+                            .replace("]", "");
+                    String[] size3 = size2.split(",");
+                    size4 = new Size(Integer.parseInt(size3[0]), Integer.parseInt(size3[1]));
+
+                } else if (key_value[0].equals("type")) {
+                    Size size1 = new Size(0, 0);
+                    if (size4 == null) {
+                        size4 = size1;
+                    }
+                    if (key_value[1].equals("car")) {
+                        vehicle1 = new Car(license_plate, size4);
+
+                    } else if (key_value[1].equals("truck")) {
+                        vehicle1 = new Truck(license_plate, size4);
+
+                    } else if (key_value[1].equals("motor")) {
+                        vehicle1 = new Motor(license_plate, "");
+
+                    }
+
+                }  else {//
+                    vehicle1 = new Motor(license_plate, "");
                 }
             }
 
@@ -166,5 +160,5 @@ public class ReadJson {
         return places;
 
     }
-}*/
+}
 
