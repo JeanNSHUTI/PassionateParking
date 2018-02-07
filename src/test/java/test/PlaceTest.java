@@ -1,14 +1,14 @@
 package test;
 
-import company.Car;
-import company.Place;
-import company.Size;
+import company.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
+
 public class PlaceTest {
     @Test
-    public void PlaceTest(){
+    public void SetTest(){
         //array of test for the Place class methods
         //creation of the vatious objects needed for the place
         Size size = new Size(1,2);
@@ -31,5 +31,24 @@ public class PlaceTest {
         Assert.assertEquals("should be true", true ,place.isFree());
         //test if the place size parameter
         Assert.assertEquals("Should be true",size,place.getSizePlace());
+    }
+
+    @Test
+    public void SetDateTest(){
+        Parking parking = Parking.getInstance();
+        Size size = new Size(190, 450);
+
+        for (int j = 0; j < 2; j++) {
+            Place place = new Place(size);
+            parking.addPlace(place);
+        }
+        Date date_test = new Date();
+        parking.getPlaces().get(0).setArrival(date_test);
+        parking.getPlaces().get(0).setDeparture(date_test);
+
+        //test if arrival date was set correctly
+        Assert.assertEquals("Should be today's date",date_test ,parking.getPlaces().get(0).getArrival());
+        //test if departure date was set correctly
+        Assert.assertEquals("Should be today's date",date_test ,parking.getPlaces().get(0).getDeparture());
     }
 }
