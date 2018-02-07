@@ -28,7 +28,6 @@ public class WriteJson {
         //part that creates a new Place object
         Size newSize = new Size(250, 600);
         Place newPlace = new Place(newSize);
-
         //adding the Place object to the list of Place objects
         places.add(newPlace);
         generator.writeStartArray(); //start array

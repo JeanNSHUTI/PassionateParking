@@ -31,12 +31,12 @@ public class ReadJson {
                     System.out.println("Arrival : "+place.getArrival().toString());
                     System.out.println("Departure : "+place.getDeparture().toString());
                     System.out.println("Price : "+place.getPrice());
-                    System.out.println("____________________________________________");
+                    System.out.println("________________________________________");
                 }
             }
             catch (javax.json.JsonException j){
                 jsonObject = jsonReader.readObject();
-                String[] data = new String[]{"length","width","price","free","arrival","departure","Licence"};
+                String[] data = new String[]{"size","free","price","vehicle"};
                 for (String info:data)
                 {
                     String result = jsonObject.get(info).toString();
