@@ -63,4 +63,8 @@ public class Parking {
         }
         return busy_places;
     }
+
+    public void reset() {
+        this.places.clear();
+    }
 }

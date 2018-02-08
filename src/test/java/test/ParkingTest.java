@@ -23,6 +23,8 @@ public class ParkingTest {
         //test the newly changed places array
         Assert.assertEquals("should be 1",1, parking.getPlaces().size());
         //now testing the array listing how many busy and free places are in the parking
+
+        parking.reset();
     }
 
     @Test
@@ -30,20 +32,30 @@ public class ParkingTest {
 
         //creation of a parking singleton
         Parking parking = Parking.getInstance();
+        Size size = new Size(1,2);
+        Place place = new Place(size);
+        place.setFree();
+        parking.addPlace(place);
 
         //Verify that the place added is free
         Assert.assertEquals("should be 1",1, parking.getEmptyPlace().size());
-        Assert.assertEquals("should be 1",0, parking.getBusyPlaces().size());
+        Assert.assertEquals("should be 0",0, parking.getBusyPlaces().size());
         int totalsize = parking.getEmptyPlace().size() + parking.getBusyPlaces().size();
         //test if sum of both arrays equals the size of the total places array
         Assert.assertEquals("should be true",parking.getPlaces().size(), totalsize);
+
+        parking.reset();
     }
 
     @Test
     public void GetBusyPlaceTest() {
 
         //creation of a parking singleton
-        company.Parking parking = Parking.getInstance();
+        Parking parking = Parking.getInstance();
+        Size size = new Size(1,2);
+        Place place = new Place(size);
+        place.setFree();
+        parking.addPlace(place);
 
         //Car creation in order to occupy a place
         Size carsize = new Size(190,450);
@@ -55,5 +67,7 @@ public class ParkingTest {
 
         int totalsize = parking.getEmptyPlace().size()+parking.getBusyPlaces().size();
         Assert.assertEquals("should be true",parking.getPlaces().size(), totalsize);
+
+        parking.reset();
     }
 }

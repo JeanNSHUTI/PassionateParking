@@ -1,6 +1,6 @@
 package company;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -68,10 +68,10 @@ public class Place {
     }
 
     //Setter departure and arrival date.
-    public void setArrival(){
+    /*public void setArrival(){
         Date date = new Date();
         this.arrival = date;
-    }
+    }*/
 
     public void setArrival(Date date) {
         Date compare_date = new Date(0);
@@ -82,10 +82,10 @@ public class Place {
         }
     }
 
-    public void setDeparture() {
+    /*public void setDeparture() {
         Date date = new Date();
         this.departure = date;
-    }
+    }*/
 
     public void setDeparture(Date date){
         Date compare_date = new Date(0);
