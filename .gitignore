@@ -49,3 +49,4 @@ hs_err_pid*
 /.idea/workspace.xml
 /.idea/libraries/javax_annotation_javax_annotation_api_1_2_b04.xml
 /.idea/
+checkstyle.xml
